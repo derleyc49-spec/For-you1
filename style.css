@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: black;
+}
+
+/* telas */
+.screen {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.active {
+  display: flex;
+}
+
+/* LOGIN */
+#login h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+#login input {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+}
+
+#login button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  border-radius: 15px;
+}
+
+/* CAPA */
+.card {
+  background: #ffe4e9;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  width: 300px;
+}
+
+.laco {
+  font-size: 50px;
+}
+
+.foto {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 4px solid white;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LIVRO FIXO REAL */
+.book-wrapper {
+  width: 320px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* páginas fixas */
+.page {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* conteúdo */
+.text-content {
+  height: 100%;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+
+/* número */
+.page-number {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: #aaa;
+}
+
+/* botões */
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  padding: 12px 20px;
+  margin: 5px;
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+}
+
+/* config */
+.settings-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-box {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 250px;
+}
+
+input[type="color"] {
+  width: 100%;
+  height: 40px;
+}
