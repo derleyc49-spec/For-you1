@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mary 💌</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="screen active">
+  <h2>Digite a senha 🩷</h2>
+  <input type="password" id="password" placeholder="Senha">
+  <button onclick="checkPassword()">Entrar</button>
+  <p id="error"></p>
+</div>
+
+<!-- CAPA FIXA -->
+<div id="cover" class="screen">
+  <div class="card">
+    <div class="laco">🎀</div>
+
+    <div class="foto">
+      <img src="foto.JPG">
+    </div>
+
+    <h1>Mary 💌</h1>
+    <p>abre com carinho</p>
+
+    <button onclick="openBook()">Abrir</button>
+  </div>
+</div>
+
+<!-- LIVRO FIXO -->
+<div id="book" class="screen">
+
+  <div class="settings-btn" onclick="toggleSettings()">⚙️</div>
+
+  <div class="book-wrapper">
+    <div id="pages-container"></div>
+  </div>
+
+  <div class="controls">
+    <button onclick="prevPage()">⬅️</button>
+    <button onclick="nextPage()">➡️</button>
+  </div>
+
+</div>
+
+<!-- MENU CORES -->
+<div id="settings" class="popup">
+  <div class="popup-box">
+    <h3>🎨 Personalizar</h3>
+
+    <p>Cor do livro</p>
+    <input type="color" onchange="setColor(this.value)">
+
+    <p>Cor do texto</p>
+    <input type="color" onchange="setTextColor(this.value)">
+
+    <button onclick="toggleSettings()">Fechar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
