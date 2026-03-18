@@ -1,68 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mary 💌</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html>
+<body style="background:black;color:white;text-align:center;font-family:sans-serif;">
 
-<!-- LOGIN -->
-<div id="login" class="screen active">
-  <h2>Digite a senha 🩷</h2>
-  <input type="password" id="password" placeholder="Senha">
-  <button onclick="checkPassword()">Entrar</button>
-  <p id="error"></p>
-</div>
+<h2>Digite a senha 🩷</h2>
+<input id="senha" type="password" style="padding:10px;border-radius:10px;">
+<br><br>
+<button onclick="entrar()" style="padding:10px 20px;border:none;border-radius:10px;background:pink;">
+Entrar
+</button>
 
-<!-- CAPA FIXA -->
-<div id="cover" class="screen">
-  <div class="card">
-    <div class="laco">🎀</div>
+<div id="app" style="display:none;margin-top:30px;">
 
-    <div class="foto">
-      <img src="foto.JPG">
-    </div>
+<img src="foto.JPG" width="150" style="border-radius:50%;">
 
-    <h1>Mary 💌</h1>
-    <p>abre com carinho</p>
+<h1>Mary 🩷</h1>
 
-    <button onclick="openBook()">Abrir</button>
-  </div>
-</div>
-
-<!-- LIVRO FIXO -->
-<div id="book" class="screen">
-
-  <div class="settings-btn" onclick="toggleSettings()">⚙️</div>
-
-  <div class="book-wrapper">
-    <div id="pages-container"></div>
-  </div>
-
-  <div class="controls">
-    <button onclick="prevPage()">⬅️</button>
-    <button onclick="nextPage()">➡️</button>
-  </div>
+<textarea id="texto" placeholder="Escreve aqui..."
+style="width:90%;height:200px;border-radius:10px;padding:10px;">
+</textarea>
 
 </div>
 
-<!-- MENU CORES -->
-<div id="settings" class="popup">
-  <div class="popup-box">
-    <h3>🎨 Personalizar</h3>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-    <p>Cor do livro</p>
-    <input type="color" onchange="setColor(this.value)">
+const firebaseConfig = {
+  apiKey: "COLE_AQUI",
+  authDomain: "COLE_AQUI",
+  projectId: "COLE_AQUI"
+};
 
-    <p>Cor do texto</p>
-    <input type="color" onchange="setTextColor(this.value)">
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-    <button onclick="toggleSettings()">Fechar</button>
-  </div>
-</div>
+window.entrar = async function(){
+  if(document.getElementById("senha").value === "1234"){
+    document.getElementById("app").style.display="block";
 
-<script src="script.js"></script>
+    const snap = await getDoc(doc(db,"pages","main"));
+    if(snap.exists()){
+      document.getElementById("texto").value = snap.data().text;
+    }
+  }
+}
+
+document.getElementById("texto").addEventListener("input", async (e)=>{
+  await setDoc(doc(db,"pages","main"),{
+    text:e.target.value
+  });
+});
+</script>
+
 </body>
 </html>
